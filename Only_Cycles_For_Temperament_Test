@@ -1,0 +1,821 @@
+#For this test you need to obtain the Google Forms Data consisting of answers such as 'DA' or 'NO' (you can change it later)
+data <- read.table(file = "clipboard", sep = "\t", header=TRUE, stringsAsFactors = FALSE)
+data <- sapply(data,function(x) {x <- gsub("DA",1,x)})
+data <- as.data.frame(data)
+data <- sapply(data,function(x) {x <- gsub("NO",0,x)})
+data <- as.data.frame(data)
+data$control <- 1
+for(i in 1:length(data$X32)) {
+    if(data$X32[i] == 1) {
+        data$control[i] <- 1
+    } else { 
+        data$control[i] <- 0
+    }
+}
+for(i in 1:length(data$X52)) {
+    if(data$X52[i] == 1) {
+        data$control[i] <- data$control[i] + 1
+    } else { 
+        data$control[i] <- data$control[i]
+    }
+}
+for(i in 1:length(data$X89)) {
+    if(data$X89[i] == 1) {
+        data$control[i] <- data$control[i] + 1
+    } else { 
+        data$control[i] <- data$control[i]
+    }
+}
+for(i in 1:length(data$X12)) {
+    if(data$X12[i] == 0) {
+        data$control[i] <- data$control[i] + 1
+    } else { 
+        data$control[i] <- data$control[i]
+    }
+}
+for(i in 1:length(data$X23)) {
+    if(data$X23[i] == 0) {
+        data$control[i] <- data$control[i] + 1
+    } else { 
+        data$control[i] <- data$control[i]
+    }
+}
+for(i in 1:length(data$X44)) {
+    if(data$X44[i] == 0) {
+        data$control[i] <- data$control[i] + 1
+    } else { 
+        data$control[i] <- data$control[i]
+    }
+}
+for(i in 1:length(data$X73)) {
+    if(data$X73[i] == 0) {
+        data$control[i] <- data$control[i] + 1
+    } else { 
+        data$control[i] <- data$control[i]
+    }
+}
+for(i in 1:length(data$X82)) {
+    if(data$X82[i] == 0) {
+        data$control[i] <- data$control[i] + 1
+    } else { 
+        data$control[i] <- data$control[i]
+    }
+}
+data$energywork <- 1
+for(i in 1:length(data$X4)) {
+    if(data$X4[i] == 1) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X8)) {
+    if(data$X8[i] == 1) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X15)) {
+    if(data$X15[i] == 1) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X22)) {
+    if(data$X22[i] == 1) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X42)) {
+    if(data$X42[i] == 1) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X50)) {
+    if(data$X50[i] == 1) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X58)) {
+    if(data$X58[i] == 1) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X64)) {
+    if(data$X64[i] == 1) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X98)) {
+    if(data$X98[i] == 1) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X27)) {
+    if(data$X27[i] == 0) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X83)) {
+    if(data$X83[i] == 0) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+for(i in 1:length(data$X103)) {
+    if(data$X103[i] == 0) {
+        data$energywork[i] <- data$energywork[i] + 1
+    } else { 
+        data$energywork[i] <- data$energywork[i]
+    }
+}
+data$energypeople <- 1
+for(i in 1:length(data$X11)) {
+    if(data$X11[i] == 1) {
+        data$energypeople[i] <- 1
+    } else { 
+        data$energypeople[i] <- 0
+    }
+}
+for(i in 1:length(data$X30)) {
+    if(data$X30[i] == 1) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X57)) {
+    if(data$X57[i] == 1) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X62)) {
+    if(data$X62[i] == 1) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X67)) {
+    if(data$X67[i] == 1) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X78)) {
+    if(data$X78[i] == 1) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X86)) {
+    if(data$X86[i] == 1) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X3)) {
+    if(data$X3[i] == 0) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X34)) {
+    if(data$X34[i] == 0) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X74)) {
+    if(data$X74[i] == 0) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X90)) {
+    if(data$X90[i] == 0) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+for(i in 1:length(data$X105)) {
+    if(data$X105[i] == 0) {
+        data$energypeople[i] <- data$energypeople[i] + 1
+    } else { 
+        data$energypeople[i] <- data$energypeople[i]
+    }
+}
+data$plastwork <- 1
+for(i in 1:length(data$X20)) {
+    if(data$X20[i] == 1) {
+        data$plastwork[i] <- 1
+    } else { 
+        data$plastwork[i] <- 0
+    }
+}
+for(i in 1:length(data$X25)) {
+    if(data$X25[i] == 1) {
+        data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X35)) {
+    if(data$X35[i] == 1) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X38)) {
+    if(data$X38[i] == 1) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X47)) {
+    if(data$X47[i] == 1) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X66)) {
+    if(data$X66[i] == 1) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X71)) {
+    if(data$X71[i] == 1) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X76)) {
+    if(data$X76[i] == 1) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X101)) {
+    if(data$X101[i] == 1) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X104)) {
+    if(data$X104[i] == 1) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X54)) {
+    if(data$X54[i] == 0) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+for(i in 1:length(data$X59)) {
+    if(data$X59[i] == 0) {
+                data$plastwork[i] <- data$plastwork[i] + 1
+    } else { 
+        data$plastwork[i] <- data$plastwork[i]
+    }
+}
+data$plastpeople <- 1
+for(i in 1:length(data$X2)) {
+    if(data$X2[i] == 1) {
+                data$plastpeople[i] <- 1
+    } else { 
+        data$plastpeople[i] <- 0
+    }
+}
+for(i in 1:length(data$X9)) {
+    if(data$X9[i] == 1) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X18)) {
+    if(data$X18[i] == 1) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X26)) {
+    if(data$X26[i] == 1) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X45)) {
+    if(data$X45[i] == 1) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X68)) {
+    if(data$X68[i] == 1) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X85)) {
+    if(data$X85[i] == 1) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X99)) {
+    if(data$X99[i] == 1) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X31)) {
+    if(data$X31[i] == 0) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X81)) {
+    if(data$X81[i] == 0) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X87)) {
+    if(data$X87[i] == 0) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+for(i in 1:length(data$X93)) {
+    if(data$X93[i] == 0) {
+                data$plastpeople[i] <- data$plastpeople[i] + 1
+    } else { 
+        data$plastpeople[i] <- data$plastpeople[i]
+    }
+}
+data$worktemp <- 1
+for(i in 1:length(data$X1)) {
+    if(data$X1[i] == 1) {
+                data$worktemp[i] <- 1
+    } else { 
+        data$worktemp[i] <- 0
+    }
+}
+for(i in 1:length(data$X13)) {
+    if(data$X13[i] == 1) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X19)) {
+    if(data$X19[i] == 1) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X33)) {
+    if(data$X33[i] == 1) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X46)) {
+    if(data$X46[i] == 1) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X49)) {
+    if(data$X49[i] == 1) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X55)) {
+    if(data$X55[i] == 1) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X77)) {
+    if(data$X77[i] == 1) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X29)) {
+    if(data$X29[i] == 0) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X43)) {
+    if(data$X43[i] == 0) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X70)) {
+    if(data$X70[i] == 0) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+for(i in 1:length(data$X94)) {
+    if(data$X94[i] == 0) {
+                data$worktemp[i] <- data$worktemp[i] + 1
+    } else { 
+        data$worktemp[i] <- data$worktemp[i]
+    }
+}
+data$temppeople <- 1
+for(i in 1:length(data$X24)) {
+    if(data$X24[i] == 1) {
+                data$temppeople[i] <- 1
+    } else { 
+        data$temppeople[i] <- 0
+    }
+}
+for(i in 1:length(data$X37)) {
+    if(data$X37[i] == 1) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X39)) {
+    if(data$X39[i] == 1) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X51)) {
+    if(data$X51[i] == 1) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X72)) {
+    if(data$X72[i] == 1) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X92)) {
+    if(data$X92[i] == 1) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X5)) {
+    if(data$X5[i] == 0) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X10)) {
+    if(data$X10[i] == 0) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X18)) {
+    if(data$X18[i] == 0) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X56)) {
+    if(data$X56[i] == 0) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X96)) {
+    if(data$X96[i] == 0) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+for(i in 1:length(data$X102)) {
+    if(data$X102[i] == 0) {
+                data$temppeople[i] <- data$temppeople[i] + 1
+    } else { 
+        data$temppeople[i] <- data$temppeople[i]
+    }
+}
+data$workemote <- 1
+for(i in 1:length(data$X14)) {
+    if(data$X14[i] == 1) {
+                data$workemote[i] <- 1
+    } else { 
+        data$workemote[i] <- 0
+    }
+}
+for(i in 1:length(data$X17)) {
+    if(data$X17[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X28)) {
+    if(data$X28[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X40)) {
+    if(data$X40[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X60)) {
+    if(data$X60[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X61)) {
+    if(data$X61[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X69)) {
+    if(data$X69[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X79)) {
+    if(data$X79[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X88)) {
+    if(data$X88[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X91)) {
+    if(data$X91[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X95)) {
+    if(data$X95[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+for(i in 1:length(data$X97)) {
+    if(data$X97[i] == 1) {
+                data$workemote[i] <- data$workemote[i] + 1
+    } else { 
+        data$workemote[i] <- data$workemote[i]
+    }
+}
+data$emotepeople <- 1
+for(i in 1:length(data$X6)) {
+    if(data$X6[i] == 1) {
+                data$emotepeople[i] <- 1
+    } else { 
+        data$emotepeople[i] <- 0
+    }
+}
+for(i in 1:length(data$X7)) {
+    if(data$X7[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X21)) {
+    if(data$X21[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X36)) {
+    if(data$X36[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X41)) {
+    if(data$X41[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X48)) {
+    if(data$X48[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X53)) {
+    if(data$X53[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X63)) {
+    if(data$X63[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X75)) {
+    if(data$X75[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X80)) {
+    if(data$X80[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X84)) {
+    if(data$X84[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+for(i in 1:length(data$X100)) {
+    if(data$X100[i] == 1) {
+                data$emotepeople[i] <- data$emotepeople[i] + 1
+    } else { 
+        data$emotepeople[i] <- data$emotepeople[i]
+    }
+}
+data$summary <- 1
+data$summary2 <- 1
+data$summary3 <- 1
+data$plast <- 1
+data$emote <- 1
+for(i in 1:length(data$summary)) {
+data$summary[i] <- sum(data$energywork[i],data$energypeople[i],data$plastwork[i],data$plastpeople[i],data$worktemp[i],data$temppeople[i],data$workemote[i],data$emotepeople[i])
+}
+for(i in 1:length(data$control))
+if(data$control[i] < 8) {
+    print('You are a liar!')
+} else {
+    print('Your test is correct')
+    }
+data$Type <- as.character(data$Type)
+for(i in 1:length(data$summary)) {
+    if(data$summary[i] <=64 & data$summary[i] >=40) {
+        data$Type[i] <- 0
+    } else if (data$summary[i] <=32) {
+        data$Type[i] <- 1
+    } else {
+        print("Let's try some other")
+    }
+}
+for(i in 1:length(data$summary2)) {
+data$summary2[i] <- sum(data$energywork[i],data$energypeople[i], data$worktemp[i],data$temppeople[i],data$workemote[i],data$emotepeople[i])
+}
+for(i in 1:length(data$summary3)) {
+data$summary3[i] <- sum(data$energywork[i],data$energypeople[i], data$worktemp[i],data$temppeople[i],data$plastwork[i],data$pastpeople[i])
+}
+for(i in 1:length(data$plast)) {
+data$plast[i] <- sum(data$plastwork[i],data$plastpeople[i])
+}
+for(i in 1:length(data$emote)) {
+data$emote[i] <- sum(data$emotepeople[i],data$workemote[i])
+}
+for(i in 1:length(data$summary2)) {
+    if(data$summary2[i] >=54 & data$plast[i] >=10) {
+        data$Type[i] <- 2
+    } else {
+        print('That’s all!')
+    }
+} 
+for(i in 1:length(data$summary3)) {
+if(data$summary3[i] <= 24 & data$emote[i] >= 10) {
+data$Type[i] <- 3
+} else {
+print('That’s all! ')
+}
+}
+any(is.na(data$Type))
+for(i in 1:length(data$Type)) {
+    if(is.na(data$Type[i]) == TRUE) {
+        data$Type[i] <- 4
+    } else {
+        print('Final')
+    }
+}
+for(i in 1:length(data$Type)) {
+    if(data$Type[i] == 0) {
+        data$Type[i] <- "Sangvinik"
+    } else if (data$Type[i] == 1) {
+        data$Type[i] <- "Flegmatik"
+    } else if (data$Type[i] == 2) {
+        data$Type[i] <- "Holerik"
+    } else if (data$Type[i] == 3) {
+        data$Type[i] <- "Melanholik"
+    } else {
+        data$Type[i] <- "Promezhutochniy"
+    }
+}
+install.packages("writexl")
+library(writexl)
+write_xlsx(data, "C:\\Games\\7501.xlsx")
+
+
+
+
