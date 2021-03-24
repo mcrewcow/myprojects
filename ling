@@ -1,1 +1,4 @@
 github-linguist
+#code for CV_density_plot
+library(c(ggpubr,ggplot2,viridis,hrbrthemes))
+ggplot(data = forbubble, aes(x = Year, y = Amount, fill = Type)) + geom_bar(stat = 'identity', color = 'black', position = position_dodge()) + theme_minimal() + scale_fill_brewer(palette = 'Reds')
